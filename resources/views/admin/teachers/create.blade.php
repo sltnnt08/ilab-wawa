@@ -42,6 +42,21 @@
                     @enderror
                 </div>
 
+                {{-- NIP --}}
+                <div>
+                    <label for="nip" class="block text-sm font-semibold text-gray-700 mb-2">
+                        NIP
+                    </label>
+                    <input type="text" 
+                           id="nip" 
+                           name="nip" 
+                           value="{{ old('nip') }}"
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('nip') border-red-500 @enderror">
+                    @error('nip')
+                        <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 {{-- Phone --}}
                 <div>
                     <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">

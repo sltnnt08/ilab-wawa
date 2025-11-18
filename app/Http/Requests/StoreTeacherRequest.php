@@ -24,10 +24,19 @@ class StoreTeacherRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'email', 'unique:teachers,email'],
+            'nip' => ['nullable', 'string', 'max:50', 'unique:teachers,nip'],
             'phone' => ['nullable', 'string', 'max:20'],
-            'photo' => ['nullable', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
+            'photo' => ['nullable', 'bail', 'file', 'image', 'mimes:jpeg,jpg,png', 'max:2048'],
             'bio' => ['nullable', 'string'],
         ];
+    }
+
+    public function prepareForValidation(): void
+    {
+        // If photo file is empty, remove it from input
+        if ($this->hasFile('photo') && $this->file('photo')->getSize() === 0) {
+            $this->request->remove('photo');
+        }
     }
 
     public function messages(): array

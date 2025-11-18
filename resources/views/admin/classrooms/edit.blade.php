@@ -39,7 +39,7 @@
                             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option value="">-- Pilih Tipe --</option>
                         <option value="classroom" {{ old('type', $classroom->type) == 'classroom' ? 'selected' : '' }}>Kelas</option>
-                        <option value="laboratory" {{ old('type', $classroom->type) == 'laboratory' ? 'selected' : '' }}>Laboratorium</option>
+                        <option value="lab" {{ old('type', $classroom->type) == 'lab' ? 'selected' : '' }}>Laboratorium</option>
                     </select>
                     @error('type')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>

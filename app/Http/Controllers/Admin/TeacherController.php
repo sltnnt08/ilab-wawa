@@ -29,7 +29,11 @@ class TeacherController extends Controller
         $data = $request->validated();
 
         if ($request->hasFile('photo')) {
-            $data['photo'] = $request->file('photo')->store('teachers', 'public');
+            $file = $request->file('photo');
+            // Pastikan file benar-benar valid dan ada
+            if ($file && $file->isValid() && $file->getSize() > 0 && $file->getPathname() !== '' && file_exists($file->getPathname())) {
+                $data['photo'] = $file->store('teachers', 'public');
+            }
         }
 
         Teacher::create($data);
@@ -52,7 +56,7 @@ class TeacherController extends Controller
     {
         $data = $request->validated();
 
-        if ($request->hasFile('photo')) {
+        if ($request->hasFile('photo') && $request->file('photo') !== null) {
             if ($teacher->photo) {
                 Storage::disk('public')->delete($teacher->photo);
             }

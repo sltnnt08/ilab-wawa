@@ -15,9 +15,9 @@
                     <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">
                         Nama Ruangan/Lab <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" 
-                           id="name" 
-                           name="name" 
+                    <input type="text"
+                           id="name"
+                           name="name"
                            value="{{ old('name') }}"
                            required
                            class="w-full px-4 py-2 border @error('name') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -32,13 +32,13 @@
                     <label for="type" class="block text-sm font-semibold text-gray-700 mb-2">
                         Tipe <span class="text-red-500">*</span>
                     </label>
-                    <select id="type" 
-                            name="type" 
+                    <select id="type"
+                            name="type"
                             required
                             class="w-full px-4 py-2 border @error('type') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option value="">-- Pilih Tipe --</option>
                         <option value="classroom" {{ old('type') == 'classroom' ? 'selected' : '' }}>Kelas</option>
-                        <option value="laboratory" {{ old('type') == 'laboratory' ? 'selected' : '' }}>Laboratorium</option>
+                        <option value="lab" {{ old('type') == 'lab' ? 'selected' : '' }}>Laboratorium</option>
                     </select>
                     @error('type')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
@@ -50,9 +50,9 @@
                     <label for="capacity" class="block text-sm font-semibold text-gray-700 mb-2">
                         Kapasitas <span class="text-red-500">*</span>
                     </label>
-                    <input type="number" 
-                           id="capacity" 
-                           name="capacity" 
+                    <input type="number"
+                           id="capacity"
+                           name="capacity"
                            value="{{ old('capacity') }}"
                            required
                            min="1"
@@ -68,9 +68,9 @@
                     <label for="pic_id" class="block text-sm font-semibold text-gray-700 mb-2">
                         ID Penanggung Jawab <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" 
-                           id="pic_id" 
-                           name="pic_id" 
+                    <input type="text"
+                           id="pic_id"
+                           name="pic_id"
                            value="{{ old('pic_id') }}"
                            required
                            class="w-full px-4 py-2 border @error('pic_id') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -85,9 +85,9 @@
                     <label for="pic_name" class="block text-sm font-semibold text-gray-700 mb-2">
                         Nama Penanggung Jawab <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" 
-                           id="pic_name" 
-                           name="pic_name" 
+                    <input type="text"
+                           id="pic_name"
+                           name="pic_name"
                            value="{{ old('pic_name') }}"
                            required
                            class="w-full px-4 py-2 border @error('pic_name') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -102,9 +102,9 @@
                     <label for="pic_photo" class="block text-sm font-semibold text-gray-700 mb-2">
                         Foto Penanggung Jawab
                     </label>
-                    <input type="file" 
-                           id="pic_photo" 
-                           name="pic_photo" 
+                    <input type="file"
+                           id="pic_photo"
+                           name="pic_photo"
                            accept="image/jpeg,image/jpg,image/png"
                            class="w-full px-4 py-2 border @error('pic_photo') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                            onchange="previewImage(event)">
@@ -112,7 +112,7 @@
                     @error('pic_photo')
                         <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                     @enderror
-                    
+
                     {{-- Preview --}}
                     <div id="preview" class="mt-3 hidden">
                         <img id="preview-image" src="" alt="Preview" class="w-32 h-32 rounded-full object-cover">
@@ -124,8 +124,8 @@
                     <label for="description" class="block text-sm font-semibold text-gray-700 mb-2">
                         Deskripsi
                     </label>
-                    <textarea id="description" 
-                              name="description" 
+                    <textarea id="description"
+                              name="description"
                               rows="3"
                               class="w-full px-4 py-2 border @error('description') border-red-500 @else border-gray-300 @enderror rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                               placeholder="Deskripsi ruangan/lab...">{{ old('description') }}</textarea>
